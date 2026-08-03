@@ -3,11 +3,11 @@ Sản phẩm: Tao CV
 
 
 Màu thương hiệu chính: 
---color-brand-50:  #FFFDF8;
-  --color-brand-100: #FAF0E3
-  --color-brand-600: #F8DFC2
-  --color-brand-700: #E5C29D
-  --color-brand-900: #4A311D
+--color-brand-50:  #edf9ff;
+  --color-brand-100: #d6f2ff
+  --color-brand-600: #0994ff
+  --color-brand-700: #037ef3
+  --color-brand-900: #0f5599
 
 Màu nhấn:
 --color-accent-300: #F6B29A

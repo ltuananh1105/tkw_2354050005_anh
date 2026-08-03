@@ -1,4 +1,88 @@
 @import "tailwindcss";
 @theme {
-    --color-brand-600: #F8DFC2;
+  --color-brand-50:  #edf9ff;
+  --color-brand-100: #d6f2ff;
+  --color-brand-600: #0994ff;
+  --color-brand-700: #037ef3;
+  --color-brand-900: #0f5599;
+
+  --color-accent-300: #F6B29A;
+  --color-accent-400: #EB9375;
+  --color-accent-500: #E07A5F;
+  --color-accent-600: #C75E43;
+  --color-accent-700: #A4452C;
+
+  --color-ink: #18181B;
+  --color-ink-invert: #FFFFFF;
+  --color-muted:#71717A;
+  --color-muted-invert: #A1A1AA;
+  --color-line:#E4E4E7;
+  --color-line-invert: #27272A;
+  --color-surface:#FFFDF9;
+  --color-surface-alt:#F8F4EE;
+  --color-surface-dark:#18181B;
+  --color-surface-dark-alt:#27272A;
+
+  --font-display: "Montserrat", "Inter", system-ui, sans-serif;
+  --font-body:    "Inter", system-ui, sans-serif;
+
+
+--radius-card: 15px
+--radius-btn: 15px
+}
+@layer base {
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 5rem; 
+    }
+  
+    body {
+      @apply bg-surface text-ink font-body antialiased;
+    }
+  
+    h1, h2, h3 {
+      @apply font-display tracking-tight;
+    }
+
+    :focus-visible {
+      @apply outline-2 outline-offset-2 outline-brand-600;
+    }
+  }
+@layer components {
+    .section {
+        @apply mx-auto flex w-full max-w-[1280px] flex-row items-center justify-between gap-[96px] px-5 py-20 lg:py-28;
+      }
+    .eyebrow {
+        @apply font-display text-xs font-semibold uppercase tracking-[0.18em] text-brand-600;
+    }
+    .btn {
+        @apply inline-flex items-center justify-center gap-2 rounded-pill px-5 py-2.5
+               text-sm font-semibold transition-colors duration-150
+               disabled:cursor-not-allowed disabled:opacity-50;
+    }
+    .btn-primary { @apply bg-brand-600 text-white hover:bg-brand-700; }
+    .btn-ghost   { @apply border border-line text-ink hover:bg-surface-alt; }
+    .btn-lg      { @apply px-7 py-3.5 text-base; }
+
+    .feature {
+        @apply mt-5 text-lg font-bold;
+    }
+    .card {
+        @apply rounded-card border border-line bg-surface p-6;
+    }
+    .badge {
+        @apply inline-flex items-center gap-1.5 rounded-pill px-3 py-1 text-xs font-semibold;
+    }
+    .ticket {
+        @apply relative rounded-card border border-line bg-surface p-6 shadow-xl;
+      }
+    .ticket::after {
+        content: "";
+        @apply absolute inset-x-0 -bottom-2 h-4;
+        background-image: radial-gradient(
+          circle at 6px 0, transparent 6px, var(--color-surface) 6px
+        );
+        background-size: 12px 12px;
+        background-repeat: repeat-x;
+    }
 }
