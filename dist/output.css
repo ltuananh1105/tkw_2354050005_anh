@@ -50,25 +50,26 @@
     --color-brand-600: #0994ff;
     --color-brand-700: #037ef3;
     --color-brand-900: #0f5599;
-    --color-accent-300: #F6B29A;
-    --color-accent-400: #EB9375;
-    --color-accent-500: #E07A5F;
-    --color-accent-600: #C75E43;
-    --color-accent-700: #A4452C;
-    --color-ink: #18181B;
-    --color-ink-invert: #FFFFFF;
-    --color-muted: #71717A;
-    --color-muted-invert: #A1A1AA;
-    --color-line: #E4E4E7;
-    --color-line-invert: #27272A;
-    --color-surface: #FFFDF9;
-    --color-surface-alt: #F8F4EE;
-    --color-surface-dark: #18181B;
-    --color-surface-dark-alt: #27272A;
+    --color-accent-300: #f6b29a;
+    --color-accent-400: #eb9375;
+    --color-accent-500: #e07a5f;
+    --color-accent-600: #c75e43;
+    --color-accent-700: #a4452c;
+    --color-ink: #18181b;
+    --color-ink-invert: #ffffff;
+    --color-muted: #71717a;
+    --color-muted-invert: #a1a1aa;
+    --color-line: #e4e4e7;
+    --color-line-invert: #27272a;
+    --color-surface: #fffdf9;
+    --color-surface-alt: #f8f4ee;
+    --color-surface-dark: #18181b;
+    --color-surface-dark-alt: #27272a;
     --font-display: "Montserrat", "Inter", system-ui, sans-serif;
     --font-body: "Inter", system-ui, sans-serif;
-    --radius-card: 15px
---radius-btn: 15px;
+    --radius-card: 15px;
+    --radius-btn: 15px;
+    --radius-pill: 9999px;
   }
 }
 @layer base {
@@ -246,6 +247,9 @@
   .mt-2 {
     margin-top: calc(var(--spacing) * 2);
   }
+  .mt-3 {
+    margin-top: calc(var(--spacing) * 3);
+  }
   .mt-4 {
     margin-top: calc(var(--spacing) * 4);
   }
@@ -257,6 +261,9 @@
   }
   .mt-8 {
     margin-top: calc(var(--spacing) * 8);
+  }
+  .mt-12 {
+    margin-top: calc(var(--spacing) * 12);
   }
   .mt-14 {
     margin-top: calc(var(--spacing) * 14);
@@ -395,6 +402,9 @@
   .rounded-md {
     border-radius: var(--radius-md);
   }
+  .rounded-pill {
+    border-radius: var(--radius-pill);
+  }
   .rounded-sm {
     border-radius: var(--radius-sm);
   }
@@ -440,7 +450,7 @@
     background-color: var(--color-surface-alt);
   }
   .bg-surface\/85 {
-    background-color: color-mix(in srgb, #FFFDF9 85%, transparent);
+    background-color: color-mix(in srgb, #fffdf9 85%, transparent);
     @supports (color: color-mix(in lab, red, red)) {
       background-color: color-mix(in oklab, var(--color-surface) 85%, transparent);
     }
@@ -620,6 +630,11 @@
       line-height: var(--tw-leading, var(--text-4xl--line-height));
     }
   }
+  @media (width >= 48rem) {
+    .md\:grid-cols-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
   @media (width >= 64rem) {
     .lg\:flex {
       display: flex;
@@ -684,12 +699,114 @@
       padding-block: calc(var(--spacing) * 28);
     }
   }
+  .eyebrow {
+    font-family: var(--font-display);
+    font-size: var(--text-xs);
+    line-height: var(--tw-leading, var(--text-xs--line-height));
+    --tw-font-weight: var(--font-weight-semibold);
+    font-weight: var(--font-weight-semibold);
+    --tw-tracking: 0.18em;
+    letter-spacing: 0.18em;
+    color: var(--color-brand-600);
+    text-transform: uppercase;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: calc(var(--spacing) * 2);
+    border-radius: var(--radius-pill);
+    padding-inline: calc(var(--spacing) * 5);
+    padding-block: calc(var(--spacing) * 2.5);
+    font-size: var(--text-sm);
+    line-height: var(--tw-leading, var(--text-sm--line-height));
+    --tw-font-weight: var(--font-weight-semibold);
+    font-weight: var(--font-weight-semibold);
+    transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to;
+    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+    transition-duration: var(--tw-duration, var(--default-transition-duration));
+    --tw-duration: 150ms;
+    transition-duration: 150ms;
+    &:disabled {
+      cursor: not-allowed;
+    }
+    &:disabled {
+      opacity: 50%;
+    }
+  }
+  .btn-primary {
+    background-color: var(--color-brand-600);
+    color: var(--color-white);
+    &:hover {
+      @media (hover: hover) {
+        background-color: var(--color-brand-700);
+      }
+    }
+  }
+  .btn-ghost {
+    border-style: var(--tw-border-style);
+    border-width: 1px;
+    border-color: var(--color-line);
+    color: var(--color-ink);
+    &:hover {
+      @media (hover: hover) {
+        background-color: var(--color-surface-alt);
+      }
+    }
+  }
+  .btn-lg {
+    padding-inline: calc(var(--spacing) * 7);
+    padding-block: calc(var(--spacing) * 3.5);
+    font-size: var(--text-base);
+    line-height: var(--tw-leading, var(--text-base--line-height));
+  }
   .feature {
     margin-top: calc(var(--spacing) * 5);
     font-size: var(--text-lg);
     line-height: var(--tw-leading, var(--text-lg--line-height));
     --tw-font-weight: var(--font-weight-bold);
     font-weight: var(--font-weight-bold);
+  }
+  .card {
+    border-radius: var(--radius-card);
+    border-style: var(--tw-border-style);
+    border-width: 1px;
+    border-color: var(--color-line);
+    background-color: var(--color-surface);
+    padding: calc(var(--spacing) * 6);
+  }
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: calc(var(--spacing) * 1.5);
+    border-radius: var(--radius-pill);
+    padding-inline: calc(var(--spacing) * 3);
+    padding-block: var(--spacing);
+    font-size: var(--text-xs);
+    line-height: var(--tw-leading, var(--text-xs--line-height));
+    --tw-font-weight: var(--font-weight-semibold);
+    font-weight: var(--font-weight-semibold);
+  }
+  .ticket {
+    position: relative;
+    border-radius: var(--radius-card);
+    border-style: var(--tw-border-style);
+    border-width: 1px;
+    border-color: var(--color-line);
+    background-color: var(--color-surface);
+    padding: calc(var(--spacing) * 6);
+    --tw-shadow: 0 20px 25px -5px var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 8px 10px -6px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
+  .ticket::after {
+    content: "";
+    position: absolute;
+    inset-inline: 0px;
+    bottom: calc(var(--spacing) * -2);
+    height: calc(var(--spacing) * 4);
+    background-image: radial-gradient( circle at 6px 0, transparent 6px, var(--color-surface) 6px );
+    background-size: 12px 12px;
+    background-repeat: repeat-x;
   }
 }
 @property --tw-space-y-reverse {
@@ -755,6 +872,75 @@
   inherits: false;
   initial-value: solid;
 }
+@property --tw-duration {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-shadow-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-shadow-alpha {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 100%;
+}
+@property --tw-inset-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-inset-shadow-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-inset-shadow-alpha {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 100%;
+}
+@property --tw-ring-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-ring-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-inset-ring-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-inset-ring-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-ring-inset {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-ring-offset-width {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 0px;
+}
+@property --tw-ring-offset-color {
+  syntax: "*";
+  inherits: false;
+  initial-value: #fff;
+}
+@property --tw-ring-offset-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
 @layer properties {
   @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
     *, ::before, ::after, ::backdrop {
@@ -773,6 +959,21 @@
       --tw-backdrop-saturate: initial;
       --tw-backdrop-sepia: initial;
       --tw-outline-style: solid;
+      --tw-duration: initial;
+      --tw-shadow: 0 0 #0000;
+      --tw-shadow-color: initial;
+      --tw-shadow-alpha: 100%;
+      --tw-inset-shadow: 0 0 #0000;
+      --tw-inset-shadow-color: initial;
+      --tw-inset-shadow-alpha: 100%;
+      --tw-ring-color: initial;
+      --tw-ring-shadow: 0 0 #0000;
+      --tw-inset-ring-color: initial;
+      --tw-inset-ring-shadow: 0 0 #0000;
+      --tw-ring-inset: initial;
+      --tw-ring-offset-width: 0px;
+      --tw-ring-offset-color: #fff;
+      --tw-ring-offset-shadow: 0 0 #0000;
     }
   }
 }
