@@ -295,6 +295,9 @@
   .h-\[48px\] {
     height: 48px;
   }
+  .h-px {
+    height: 1px;
+  }
   .w-5 {
     width: calc(var(--spacing) * 5);
   }
@@ -377,6 +380,9 @@
   }
   .gap-y-6 {
     row-gap: calc(var(--spacing) * 6);
+  }
+  .overflow-hidden {
+    overflow: hidden;
   }
   .rounded {
     border-radius: 0.25rem;
@@ -807,6 +813,20 @@
     background-image: radial-gradient( circle at 6px 0, transparent 6px, var(--color-surface) 6px );
     background-size: 12px 12px;
     background-repeat: repeat-x;
+  }
+  .to-top {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    z-index: 50;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+  .to-top.is-visible {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
   }
 }
 @property --tw-space-y-reverse {

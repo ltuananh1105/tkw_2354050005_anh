@@ -15,6 +15,11 @@
 
 </head>
 <body>
+    <!-- BUỔI 4 · Tính năng 2 — mốc theo dõi cuộn trang.
+       Một thẻ rỗng cao 1px đặt ngay đầu <body>. Khi nó trôi khỏi màn hình
+       nghĩa là trang đã cuộn. IntersectionObserver chỉ báo đúng hai lần
+       (lúc ra, lúc vào); sự kiện scroll bắn hàng trăm lần mỗi giây. -->
+  <div id="nav-sentinel" aria-hidden="true" class="h-px w-full"></div>
     <a href="#main"
     class="btn btn-primary sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50">
    Bỏ qua đến nội dung chính
@@ -250,5 +255,13 @@
         </li>
         </ol>
     </section>
+    <!-- BUỔI 4 · Bài khởi động — nút lên đầu trang, hiện sau khi cuộn quá 400px -->
+  <button type="button" id="nut-len-dau" class="to-top" aria-label="Lên đầu trang">
+    <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+         stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M12 19V5M5 12l7-7 7 7" />
+    </svg>
+  </button>
+    <script type="module" src="./js/main.js"></script>
 </body>
 </html>
